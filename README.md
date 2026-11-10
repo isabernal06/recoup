@@ -4,6 +4,8 @@ Recoup helps a debt collector decide **which overdue accounts to work first**, a
 
 It is a frontend-only React application. The backend is simulated in memory.
 
+**Live demo: [recoup-zeta-nine.vercel.app](https://recoup-zeta-nine.vercel.app)**
+
 ## Run it
 
 Requires Node 20.19+ or 22.13+ (the minimum that Vite and jsdom both support).
@@ -228,5 +230,7 @@ With 48 rows none of this is needed for speed. I kept it because it is cheap and
 - Add roles and permissions: collectors see their portfolio, supervisors see the team's.
 
 ## Deploying
+
+The live demo runs on Vercel at [recoup-zeta-nine.vercel.app](https://recoup-zeta-nine.vercel.app).
 
 The build is a static site (`npm run build` → `dist/`). Because it uses client-side routing, the host must serve `index.html` for unknown paths. `vercel.json` and `public/_redirects` already configure that for Vercel and Netlify.
