@@ -1,0 +1,130 @@
+.dialog {
+  max-height: calc(100dvh - 3rem);
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  color: var(--color-text);
+  box-shadow: var(--shadow-lg);
+  overflow: auto;
+}
+
+.md {
+  width: min(40rem, calc(100vw - 2rem));
+}
+
+.lg {
+  width: min(70rem, calc(100vw - 2rem));
+}
+
+.dialog[open] {
+  animation: dialog-in 240ms var(--ease-out);
+}
+
+.dialog::backdrop {
+  background: rgb(15 20 36 / 55%);
+  backdrop-filter: blur(3px);
+}
+
+.dialog[open]::backdrop {
+  animation: backdrop-in 240ms ease;
+}
+
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+}
+
+@keyframes backdrop-in {
+  from {
+    opacity: 0;
+  }
+}
+
+.panel {
+  padding: var(--space-5) var(--space-6) var(--space-6);
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+.title {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.description {
+  margin-top: var(--space-1);
+  color: var(--color-text-muted);
+}
+
+.close {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: calc(var(--space-2) * -1);
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.close:hover {
+  background: var(--color-surface-sunken);
+  color: var(--color-text);
+}
+
+.footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  /* Bleed to the panel edges so content scrolls cleanly underneath. */
+  margin: var(--space-5) calc(var(--space-6) * -1) calc(var(--space-6) * -1);
+  padding: var(--space-4) var(--space-6);
+  border-top: 1px solid var(--color-border);
+  background: rgb(255 255 255 / 92%);
+  backdrop-filter: blur(6px);
+}
+
+/* On phones the dialog becomes a full-screen sheet. */
+@media (max-width: 40rem) {
+  .dialog {
+    width: 100vw;
+    max-width: 100vw;
+    height: 100dvh;
+    max-height: 100dvh;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .panel {
+    padding: var(--space-4);
+  }
+
+  .footer {
+    margin: var(--space-5) calc(var(--space-4) * -1) calc(var(--space-4) * -1);
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .footer > * {
+    flex: 1 1 auto;
+  }
+}

@@ -1,0 +1,41 @@
+.bar {
+  display: grid;
+  grid-template-columns: minmax(14rem, 1fr) 13.5rem 17.5rem auto;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.search {
+  min-width: 0;
+}
+
+.searchWrap {
+  position: relative;
+}
+
+.searchIcon {
+  position: absolute;
+  top: 50%;
+  left: 0.875rem;
+  color: var(--color-text-subtle);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.searchWrap input.searchInput {
+  padding-left: 2.625rem;
+}
+
+.clear {
+  justify-self: start;
+}
+
+@media (max-width: 72rem) {
+  .bar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .search {
+    grid-column: 1 / -1;
+  }
+}

@@ -1,0 +1,308 @@
+.app {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+  min-height: 100dvh;
+  /* Paints the sidebar column to the bottom of the page, however long it is. */
+  background: linear-gradient(90deg, var(--sidebar-bg) var(--sidebar-width), transparent 0);
+}
+
+/* Invisible until focused: the first Tab press on any page reveals it. */
+.skipLink {
+  position: fixed;
+  top: var(--space-3);
+  left: var(--space-3);
+  z-index: 100;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  font-weight: 600;
+  box-shadow: var(--shadow-md);
+  transform: translateY(-200%);
+}
+
+.skipLink:focus {
+  transform: none;
+}
+
+/* ---------- Sidebar (wide screens) ---------- */
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  height: 100dvh;
+  padding: var(--space-5) var(--space-4);
+  background:
+    radial-gradient(120% 60% at 0% 0%, rgb(99 102 241 / 22%), transparent 60%),
+    var(--sidebar-bg);
+  color: var(--sidebar-text);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 0 var(--space-2);
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--radius-sm);
+  background: var(--gradient-brand);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgb(99 102 241 / 45%);
+}
+
+.brandName {
+  font-size: var(--text-lg);
+  font-weight: 750;
+  letter-spacing: -0.02em;
+  color: var(--sidebar-text-strong);
+}
+
+.nav {
+  flex: 1;
+}
+
+.navList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: 2.75rem;
+  padding: 0 var(--space-3);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  font-weight: 550;
+  color: var(--sidebar-text);
+  text-decoration: none;
+  transition:
+    background-color 140ms ease,
+    color 140ms ease;
+}
+
+.navLink:hover {
+  background: rgb(255 255 255 / 5%);
+  color: var(--sidebar-text-strong);
+}
+
+.navLink:focus-visible {
+  outline-color: #a5b4fc;
+}
+
+.active {
+  position: relative;
+  background: var(--sidebar-active-bg);
+  color: var(--sidebar-text-strong);
+}
+
+/* A small accent bar marks the current page. */
+.active::before {
+  content: '';
+  position: absolute;
+  top: 0.625rem;
+  bottom: 0.625rem;
+  left: -1rem;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: #818cf8;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border: 1px solid var(--sidebar-border);
+  border-radius: var(--radius-md);
+  background: rgb(255 255 255 / 4%);
+}
+
+.userText {
+  min-width: 0;
+}
+
+.userName {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--sidebar-text-strong);
+}
+
+.userRole {
+  font-size: var(--text-xs);
+  color: var(--sidebar-text);
+}
+
+/* ---------- Content column ---------- */
+
+.content {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.main {
+  flex: 1;
+  width: 100%;
+  max-width: var(--page-max-width);
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-6) var(--space-7);
+  animation: page-in 320ms var(--ease-out);
+}
+
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+/* Focus lands here after navigation; it needs no ring because nothing is actionable. */
+.main:focus {
+  outline: none;
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-5);
+  width: 100%;
+  max-width: var(--page-max-width);
+  margin: 0 auto;
+  padding: var(--space-4) var(--space-6) var(--space-5);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+/* A toggle switch built on a real checkbox with role="switch". */
+.switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: 2.75rem;
+  font-weight: 600;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.switch input {
+  position: absolute;
+  z-index: 1;
+  width: 2.5rem;
+  height: 1.5rem;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.track {
+  position: relative;
+  display: inline-block;
+  width: 2.5rem;
+  height: 1.5rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-border-strong);
+  transition: background-color 160ms ease;
+}
+
+.thumb {
+  position: absolute;
+  top: 0.1875rem;
+  left: 0.1875rem;
+  width: 1.125rem;
+  height: 1.125rem;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: var(--shadow-sm);
+  transition: transform 180ms var(--ease-out);
+}
+
+.switch input:checked + .track {
+  background: var(--color-danger);
+}
+
+.switch input:checked + .track .thumb {
+  transform: translateX(1rem);
+}
+
+.switch input:focus-visible + .track {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* ---------- Narrow screens: the sidebar becomes a top bar ---------- */
+
+@media (max-width: 64rem) {
+  .app {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    background: none;
+  }
+
+  .sidebar {
+    z-index: 20;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    height: auto;
+    padding: var(--space-2) var(--space-4);
+    background: var(--sidebar-bg);
+  }
+
+  .nav {
+    flex: none;
+  }
+
+  .navList {
+    flex-direction: row;
+  }
+
+  .navLink {
+    gap: var(--space-2);
+    padding: 0 var(--space-3);
+  }
+
+  .active::before {
+    top: auto;
+    right: var(--space-3);
+    bottom: 0.25rem;
+    left: var(--space-3);
+    width: auto;
+    height: 2px;
+    border-radius: 2px;
+  }
+
+  .user {
+    display: none;
+  }
+
+  .main {
+    padding: var(--space-5) var(--space-4) var(--space-6);
+  }
+
+  .footer {
+    padding-inline: var(--space-4);
+  }
+}
+
+@media (max-width: 26rem) {
+  .brandName {
+    display: none;
+  }
+}

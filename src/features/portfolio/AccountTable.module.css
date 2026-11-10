@@ -1,0 +1,209 @@
+.wrapper {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+}
+
+.table th,
+.table td {
+  padding: var(--space-3) var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.table th:first-child,
+.table td:first-child {
+  padding-left: var(--space-5);
+}
+
+.table th:last-child,
+.table td:last-child {
+  padding-right: var(--space-5);
+}
+
+.table thead th {
+  padding-block: var(--space-3);
+  border-top: 1px solid var(--color-border);
+  background: var(--color-surface-muted);
+  font-size: var(--text-2xs);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-subtle);
+  white-space: nowrap;
+}
+
+.row {
+  cursor: pointer;
+  transition: background-color 120ms ease;
+}
+
+.row:hover {
+  background: var(--color-surface-muted);
+}
+
+.table tbody tr.selectedRow {
+  background: var(--color-primary-softer);
+}
+
+.table tbody tr.selectedRow td:first-child {
+  box-shadow: inset 3px 0 0 var(--color-primary);
+}
+
+.table .numeric {
+  text-align: right;
+}
+
+.checkboxCell {
+  width: 3.5rem;
+}
+
+/* 24px: the WCAG 2.2 minimum target size. */
+.checkbox {
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0;
+  accent-color: var(--color-primary);
+  cursor: pointer;
+}
+
+.customer {
+  font-weight: 400;
+}
+
+.customerInner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.customerText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.name {
+  font-size: var(--text-sm);
+  font-weight: 650;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.name:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.meta,
+.reason {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.reason {
+  display: block;
+  margin-top: var(--space-1);
+  max-width: 12rem;
+}
+
+.balance {
+  font-size: var(--text-sm);
+  font-weight: 650;
+}
+
+.days {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-weight: 550;
+}
+
+.agingDot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+}
+
+.bucket0 {
+  background: var(--aging-1);
+}
+
+.bucket1 {
+  background: var(--aging-2);
+}
+
+.bucket2 {
+  background: var(--aging-3);
+}
+
+.bucket3 {
+  background: var(--aging-4);
+}
+
+.muted {
+  color: var(--color-text-subtle);
+}
+
+.narrowOnly {
+  display: none;
+}
+
+/*
+ * Small screens keep the columns a collector needs to decide what to open
+ * (who, how much, how urgent). The rest moves under the customer name or is
+ * one tap away on the detail page. The table stays a real table throughout,
+ * so its semantics for screen readers are never lost.
+ */
+@media (max-width: 56rem) {
+  .table .wideOnly {
+    display: none;
+  }
+
+  .narrowOnly {
+    display: block;
+    margin-top: var(--space-1);
+  }
+
+  .table th,
+  .table td {
+    padding: var(--space-3) var(--space-2);
+  }
+
+  .table th:first-child,
+  .table td:first-child {
+    padding-left: var(--space-4);
+  }
+
+  .table th:last-child,
+  .table td:last-child {
+    padding-right: var(--space-4);
+  }
+
+  /* Let headers wrap so narrow columns are sized by their values, not their titles. */
+  .table thead th {
+    white-space: normal;
+  }
+
+  .checkboxCell {
+    width: 2.5rem;
+  }
+
+  .reason {
+    display: none;
+  }
+}
+
+/* On the narrowest phones the avatar gives its space back to the name. */
+@media (max-width: 30rem) {
+  .customerInner > [aria-hidden='true'] {
+    display: none;
+  }
+}

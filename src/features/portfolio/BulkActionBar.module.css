@@ -1,0 +1,129 @@
+.bar {
+  position: fixed;
+  bottom: var(--space-5);
+  left: calc(50% + var(--sidebar-width) / 2);
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  padding: var(--space-2) var(--space-2) var(--space-2) var(--space-5);
+  border-radius: var(--radius-pill);
+  background: var(--sidebar-bg);
+  color: #ffffff;
+  box-shadow: var(--shadow-lg);
+  transform: translateX(-50%);
+  animation: bar-in 260ms var(--ease-out);
+}
+
+@keyframes bar-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 16px);
+  }
+}
+
+.count {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.75rem;
+  height: 1.75rem;
+  padding: 0 var(--space-2);
+  border-radius: var(--radius-pill);
+  background: #818cf8;
+  font-weight: 700;
+  color: var(--sidebar-bg);
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.clear,
+.primary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 2.5rem;
+  padding: 0 var(--space-4);
+  border: 0;
+  border-radius: var(--radius-pill);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.clear {
+  background: transparent;
+  color: #d4d8e8;
+}
+
+.clear:hover {
+  background: rgb(255 255 255 / 10%);
+  color: #ffffff;
+}
+
+.primary {
+  background: #ffffff;
+  color: var(--sidebar-bg);
+}
+
+.primary:hover {
+  background: #e0e7ff;
+}
+
+.clear:focus-visible,
+.primary:focus-visible {
+  outline-color: #a5b4fc;
+}
+
+@media (max-width: 64rem) {
+  .bar {
+    left: 50%;
+  }
+}
+
+@media (max-width: 40rem) {
+  .bar {
+    right: var(--space-3);
+    bottom: var(--space-3);
+    left: var(--space-3);
+    justify-content: space-between;
+    gap: var(--space-2);
+    padding-left: var(--space-3);
+    transform: none;
+    animation-name: bar-in-mobile;
+  }
+
+  @keyframes bar-in-mobile {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+  }
+
+  .clear {
+    padding: 0 var(--space-3);
+  }
+
+  /* Hidden visually on phones, but still part of each control's accessible name. */
+  .phoneHidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}

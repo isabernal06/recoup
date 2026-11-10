@@ -1,0 +1,113 @@
+.skeleton {
+  display: block;
+  border-radius: var(--radius-md);
+  background: linear-gradient(90deg, #e8eaf1 25%, #f3f4f8 50%, #e8eaf1 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-7) var(--space-5);
+  text-align: center;
+}
+
+.standalone {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.inline {
+  padding-block: var(--space-6);
+}
+
+.illustration {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  margin-bottom: var(--space-2);
+  border-radius: 50%;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  box-shadow: 0 0 0 8px var(--color-primary-softer);
+}
+
+.illustration.danger {
+  background: var(--tone-danger-bg);
+  color: var(--color-danger);
+  box-shadow: 0 0 0 8px #fef3f3;
+}
+
+.title {
+  font-size: var(--text-lg);
+  font-weight: 650;
+}
+
+.description {
+  max-width: 30rem;
+  color: var(--color-text-muted);
+}
+
+.action {
+  margin-top: var(--space-3);
+}
+
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+.alertIcon {
+  margin-top: 0.0625rem;
+}
+
+.alertBody {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-3);
+}
+
+.danger {
+  background: var(--tone-danger-bg);
+  color: var(--tone-danger-text);
+}
+
+.success {
+  background: var(--tone-success-bg);
+  color: var(--tone-success-text);
+}
+
+.warning {
+  background: var(--tone-warning-bg);
+  color: var(--tone-warning-text);
+}

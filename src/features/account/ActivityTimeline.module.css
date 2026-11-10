@@ -1,0 +1,125 @@
+.timeline {
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  position: relative;
+  display: flex;
+  gap: var(--space-3);
+  padding-bottom: var(--space-5);
+}
+
+.item:last-child {
+  padding-bottom: 0;
+}
+
+/* The line joining one event to the next. */
+.item:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  top: 2.25rem;
+  bottom: 0.25rem;
+  left: 1rem;
+  width: 2px;
+  border-radius: 2px;
+  background: var(--color-border);
+  transform: translateX(-50%);
+}
+
+.icon {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--tone-neutral-bg);
+  color: var(--tone-neutral-text);
+  box-shadow: 0 0 0 4px var(--color-surface);
+}
+
+.whatsapp {
+  background: var(--whatsapp-soft);
+  color: var(--whatsapp);
+}
+
+.email {
+  background: var(--email-soft);
+  color: var(--email);
+}
+
+.promise {
+  background: var(--tone-warning-bg);
+  color: #b26a00;
+}
+
+.payment {
+  background: var(--tone-success-bg);
+  color: var(--tone-success-dot);
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+  padding-top: 0.3125rem;
+}
+
+.itemHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0 var(--space-3);
+}
+
+.summary {
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.time {
+  font-size: var(--text-xs);
+  color: var(--color-text-subtle);
+  white-space: nowrap;
+}
+
+.note {
+  margin-top: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-left: 3px solid var(--color-border-strong);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  background: var(--color-surface-muted);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+/* Messages sent from a campaign read like what the customer received. */
+.whatsappNote {
+  max-width: 32rem;
+  border-left: 0;
+  border-radius: 0 var(--radius-md) var(--radius-md) var(--radius-md);
+  background: #e7f6ec;
+  color: #14301f;
+}
+
+.emailNote {
+  max-width: 36rem;
+  border-left: 3px solid var(--email);
+  background: var(--email-soft);
+  color: #262b5a;
+}
+
+.campaign {
+  margin-top: var(--space-1);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.empty {
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-muted);
+  color: var(--color-text-muted);
+}

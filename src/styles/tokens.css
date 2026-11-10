@@ -1,0 +1,105 @@
+/*
+ * Design tokens. Components only reference these variables, never raw values,
+ * so the visual language can change in one place.
+ *
+ * Every text/background pair below meets WCAG AA contrast (4.5:1) for body text.
+ */
+:root {
+  /* Surfaces */
+  --color-bg: #f4f5fa;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f6f7fb;
+  --color-surface-sunken: #eef0f6;
+  --color-border: #e4e7ef;
+  --color-border-strong: #8a93a8;
+
+  /* Text */
+  --color-text: #0f1629;
+  --color-text-muted: #4e586c;
+  --color-text-subtle: #5f6880;
+  --color-text-on-primary: #ffffff;
+
+  /* Brand */
+  --color-primary: #4f46e5;
+  --color-primary-hover: #4338ca;
+  --color-primary-strong: #3730a3;
+  --color-primary-soft: #eef0ff;
+  --color-primary-softer: #f6f6ff;
+  --color-focus: #4f46e5;
+  --gradient-brand: linear-gradient(135deg, #6366f1 0%, #4f46e5 45%, #7c3aed 100%);
+
+  /* Sidebar */
+  --sidebar-bg: #0f1424;
+  --sidebar-text: #c3c8dc;
+  --sidebar-text-strong: #ffffff;
+  --sidebar-border: rgb(255 255 255 / 8%);
+  --sidebar-active-bg: rgb(255 255 255 / 9%);
+
+  /* Semantic tones: soft background, dark text, and a saturated dot/icon colour */
+  --tone-neutral-bg: #eef0f4;
+  --tone-neutral-text: #3a4458;
+  --tone-neutral-dot: #8a93a8;
+  --tone-info-bg: #e6edff;
+  --tone-info-text: #2f3f9e;
+  --tone-info-dot: #4f6cf0;
+  --tone-success-bg: #dff6ea;
+  --tone-success-text: #0b5c3b;
+  --tone-success-dot: #16a364;
+  --tone-warning-bg: #fdf0d5;
+  --tone-warning-text: #6f4500;
+  --tone-warning-dot: #f0a020;
+  --tone-danger-bg: #fde7e7;
+  --tone-danger-text: #8f1d1d;
+  --tone-danger-dot: #e5484d;
+  --color-danger: #c4262e;
+  --color-danger-hover: #a01d24;
+
+  /* Receivables aging scale: older debt reads warmer */
+  --aging-1: #f5c04a;
+  --aging-2: #f39a3d;
+  --aging-3: #e9663a;
+  --aging-4: #c9303a;
+
+  /* Messaging channels */
+  --whatsapp: #1f9e57;
+  --whatsapp-soft: #e2f6ea;
+  --whatsapp-chat-bg: #efeae2;
+  --whatsapp-header: #0f5c4d;
+  --email: #4f46e5;
+  --email-soft: #eef0ff;
+
+  /* Spacing scale (4px base) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+
+  /* Typography */
+  --font-sans: 'Inter Variable', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --text-2xs: 0.6875rem;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 1.875rem;
+
+  /* Shape */
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+  --shadow-xs: 0 1px 2px rgb(15 22 41 / 5%);
+  --shadow-sm: 0 1px 2px rgb(15 22 41 / 4%), 0 2px 6px rgb(15 22 41 / 4%);
+  --shadow-md: 0 2px 4px rgb(15 22 41 / 4%), 0 8px 24px rgb(15 22 41 / 8%);
+  --shadow-lg: 0 12px 32px rgb(15 22 41 / 14%), 0 32px 64px rgb(15 22 41 / 14%);
+  --shadow-primary: 0 1px 2px rgb(79 70 229 / 24%), 0 4px 12px rgb(79 70 229 / 22%);
+
+  --page-max-width: 1240px;
+  --sidebar-width: 15rem;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
